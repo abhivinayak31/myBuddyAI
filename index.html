@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FeelBuddy — Your AI Partner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">🧠</div>
+        <div class="titles">
+          <h1>FeelBuddy</h1>
+          <p>Your AI partner for mood, music, books, and puzzles</p>
+        </div>
+      </div>
+      <button id="toggle-theme" class="btn ghost">Toggle theme</button>
+    </header>
+
+    <main class="container">
+      <section class="card elevate">
+        <h2>How are you feeling today?</h2>
+        <textarea id="mood-input" placeholder="Write a few sentences about your mood..." rows="4"></textarea>
+        <div class="row">
+          <button id="analyze-btn" class="btn primary">
+            <span class="btn-content">Analyze Mood & Recommend</span>
+            <span class="btn-spinner" aria-hidden>⏳</span>
+          </button>
+          <div id="status-pill" class="pill info" hidden>Ready</div>
+        </div>
+        <div id="confidence-bar" class="progress" hidden>
+          <div id="confidence-fill" class="progress-fill"></div>
+        </div>
+        <div id="mood-badge" class="badge" hidden></div>
+      </section>
+
+      <section id="results" class="grid two" hidden>
+        <div class="card elevate">
+          <h3>🎶 Recommended Songs</h3>
+          <ul id="songs-list" class="list"></ul>
+        </div>
+
+        <div class="card elevate">
+          <h3>📚 Recommended Book</h3>
+          <div id="book-tip" class="note"></div>
+        </div>
+
+        <div class="card elevate">
+          <h3>🧩 Puzzle for Your Mood</h3>
+          <div class="row">
+            <a id="puzzle-link" class="btn secondary" href="#" target="_blank" rel="noopener">Play puzzle</a>
+            <button id="log-puzzle-btn" class="btn">I played it today</button>
+          </div>
+          <div id="streak-info" class="stat"></div>
+        </div>
+
+        <div class="card elevate">
+          <h3>🏆 Leaderboard</h3>
+          <div class="table-wrap">
+            <table id="leaderboard-table">
+              <thead>
+                <tr><th>User</th><th>Streak (Days)</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="card elevate">
+        <h3>🕒 Mood Timeline</h3>
+        <div class="grid two">
+          <div class="table-wrap">
+            <table id="timeline-table">
+              <thead>
+                <tr><th>Date</th><th>Mood</th><th>Entry</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="mood-chart" height="220"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made with ❤️ — Keep your data private; secrets must stay on the server.</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
